@@ -32,7 +32,7 @@ function App() {
       <Logo />
       <Form onAddItem={handleAddItem} />
       <Checklist items={items} onDeleteItem={handleDeleteItem} onCompleteItem={handleCompleteItem} />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
