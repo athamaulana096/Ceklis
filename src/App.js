@@ -27,11 +27,18 @@ function App() {
     );
   }
 
+  function handleClearItems() {
+    const confirmed = window.confirm('Apakah Anda yakin ingin menghapus semua item?');
+    if (confirmed) {
+      setItems([]);
+    }
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItem={handleAddItem} />
-      <Checklist items={items} onDeleteItem={handleDeleteItem} onCompleteItem={handleCompleteItem} />
+      <Checklist items={items} onDeleteItem={handleDeleteItem} onCompleteItem={handleCompleteItem} onClearItems={handleClearItems} />
       <Stats items={items} />
     </div>
   );
