@@ -16,11 +16,22 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
+  function handleCompleteItem(id) {
+    setItems((items) =>
+      items.map((item) => {
+        if (item.id === id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItem={handleAddItem} />
-      <Checklist items={items} onDeleteItem={handleDeleteItem} />
+      <Checklist items={items} onDeleteItem={handleDeleteItem} onCompleteItem={handleCompleteItem} />
       <Stats />
     </div>
   );
